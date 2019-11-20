@@ -9,40 +9,46 @@ class Letters extends Component {
     letter_one_content: '',
     letter_two_content: '',
     letter_three_content: '',
-    letter_content: []
+    letter_content: [],
+    open_letters: []
+  }
+
+  handleLetterClick = (id) => {
+
+    // let newOpened = this.state.open_letters
+    // console.log(id)
+    // newOpened.push(this.target.key)
+    this.setState({
+      open_letters: [...this.state.open_letters, id]
+    })
   }
 
   fetchLetters = (id, index) => {
+    if(!id){
+      return
+    } else {
     const url = 'http://localhost:8000/api/letters/getletters/' + id
-    fetch(url, {
-      method: 'GET',
-      header: {
-        'content-type': 'application/json'
-      }
-    })
-    .then(res => {
-      if(!res.ok){
-        this.setState({ error: res.error })
-        throw new Error(res.status)
-      }
-      return res.json()
-    })
-    .then(data => {
-      // if(index === 0){
-      //   this.setState({ letter_content: data.content })
-      // }
-      // if(index === 1){
-      //   this.setState({ letter_two_content: data.content })
-      // }
-      // if(index === 2){
-      //   this.setState({ letter_three_content: data.content })
-      // }
-      let updateArray = this.state.letter_content
-      updateArray.push(data.content)
-      this.setState({
-        letter_content: updateArray
-      })
-    })
+        fetch(url, {
+          method: 'GET',
+          header: {
+            'content-type': 'application/json'
+          }
+        })
+        .then(res => {
+          if(!res.ok){
+            this.setState({ error: res.error })
+            throw new Error(res.status)
+          }
+          return res.json()
+        })
+        .then(data => {
+          let updateArray = this.state.letter_content
+          updateArray.push(data.content)
+          this.setState({
+            letter_content: updateArray
+          })
+        })
+    }
   }
 
   componentDidMount() {
@@ -84,9 +90,12 @@ class Letters extends Component {
         <ul>
           {this.state.letter_id.map((id, index) => 
           <li className='letter-list-item' key={index}>
-            <button><h3>Letter {index + 1}</h3></button>
+            <button id={index} onClick={e => {
+              e.preventDefault()
+              this.handleLetterClick(id)
+            }}><h3 >Letter {index + 1}</h3></button>
             <div>
-              <p className='letter-content'>{this.state.letter_content[index]}</p>
+              {this.state.letter_content ? <p className='letter-content'>{this.state.letter_content[index]}</p> : <p></p>}
             </div>
           </li>)}
         </ul>
