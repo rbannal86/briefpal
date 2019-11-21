@@ -1,10 +1,14 @@
 import React, { Component } from 'react'
 import config from '../../config'
+import UserContext from '../../context/UserContext'
 
 class UserLogin extends Component {
+  static contextType = UserContext
+
   state = {
     user_name: '',
-    error: ''
+    error: '',
+    logged_in: false
   }
 
   submitLogin = (e) => {
@@ -33,6 +37,7 @@ class UserLogin extends Component {
               .then(res => {
                 window.localStorage.setItem('user_name', user_name)
                 window.localStorage.setItem(config.TOKEN_KEY, res.authToken)
+                this.context.login()
               })
               .then(this.props.history.push({
                 pathname:('/userpage')

@@ -9,14 +9,29 @@ import LetterView from '../LetterView/LetterView'
 import ReplyPage from '../ReplyPage/ReplyPage'
 import UserLogin from '../UserLogin/UserLogin'
 import UserContext from '../../context/UserContext'
-import LetterApiService from '../../services/letters-api-service'
 
 class App extends Component {
 
   state = {
     user_name: window.localStorage.user_name,
-    user_id: ''
+    user_id: '',
+    logged_in: false,
   }
+
+  logout = (e) => {
+    e.preventDefault()
+    window.localStorage.removeItem('client_auth_token')
+    window.localStorage.removeItem('user_name')
+    this.setState({
+      logged_in: false
+    })
+  }
+
+  // login = () => {
+  //   this.setState({
+  //     logged_in: true
+  //   })
+  // }
 
   componentDidMount() {
     if(window.localStorage.user_name)
@@ -43,11 +58,14 @@ class App extends Component {
     return (
       <UserContext.Provider value={{
         user_name: this.state.user_name,
-        user_id: this.state.user_id
+        user_id: this.state.user_id,
+        login: function login() {this.setState({logged_in: true})}
       }}>
         <div className='App'>
           <header>
-            <nav><Link to='/'><button>home</button></Link> | <button>register</button> | <Link to='/login'><button>login</button></Link></nav>
+              {(this.state.logged_in)
+              ? <nav><Link to='/'><button>home</button></Link> | <button onClick={e => this.logout(e)}>logout</button></nav>
+              : <nav><Link to='/'><button>home</button></Link> | <button>register</button> | <Link to='/login'><button>login</button></Link></nav>}
             <h1>briefPal</h1>
           </header>
           <main >
@@ -58,7 +76,7 @@ class App extends Component {
             <Route exact path='/user/letters' component={Letters} />
             <Route exact path='/user/details/:id' component={LetterView} />
             <Route exact path='/reply' component={ReplyPage} />
-            <Route exact path='/login' component={UserLogin} />
+            <Route exact path='/login' component={UserLogin}/>
           </main>
         </div>
       </UserContext.Provider>

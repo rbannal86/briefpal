@@ -13,7 +13,6 @@ class UserPage extends Component {
   }
 
   componentDidMount() {
-    // this.setState({
     //   conversations: this.state.conversations.sort()
     // })
     const url = 'http://localhost:8000/api/users/' + this.state.user_name + '/conversations'
