@@ -5,7 +5,8 @@ class NewLetter extends Component {
     content: '',
     user_name: '',
     user_id: '',
-    error: ''
+    error: '',
+    first_letter: true
   }
 
   setContentValue = (input) => {
@@ -62,13 +63,28 @@ class NewLetter extends Component {
       return res.json()
     })
     .then(() => {
-      this.props.history.push({
+      if(this.state.first_letter){
+        this.props.history.push({
         pathname:('/newlettersent')
-      })
+        })
+      } else {
+        this.props.history.push({
+          pathname:('/userpage')
+        })
+      }
+      
     })
     .catch(error => {
       console.log(error)
     })
+  }
+
+  componentDidMount() {
+    if(!this.props.location.state.first_letter) {
+      this.setState({
+        first_letter: false
+      })
+    }
   }
 
   render() {

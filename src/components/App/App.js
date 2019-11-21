@@ -5,6 +5,8 @@ import MainPage from '../MainPage/MainPage'
 import NewLetterSent from '../NewLetterSent/NewLetterSent'
 import UserPage from '../UserPage/UserPage'
 import Letters from '../Letters/Letters'
+import LetterView from '../LetterView/LetterView'
+import ReplyPage from '../ReplyPage/ReplyPage'
 
 function App() {
   return (
@@ -19,6 +21,8 @@ function App() {
         <Route exact path='/newlettersent' component={NewLetterSent} />
         <Route exact path='/userpage' component={UserPage} />
         <Route exact path='/user/letters' component={Letters} />
+        <Route exact path='/user/details/:id' component={LetterView} />
+        <Route exact path='/reply' component={ReplyPage} />
       </main>
     </div>
   );

@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 
 class Letters extends Component {
   state = {
@@ -42,16 +43,17 @@ class Letters extends Component {
           return res.json()
         })
         .then(data => {
-          let updateArray = this.state.letter_content
-          updateArray.push(data.content)
           this.setState({
-            letter_content: updateArray
+            letter_content: [...this.state.letter_content, data.content]
           })
         })
     }
   }
 
   componentDidMount() {
+    this.setState({
+      letter_id: this.state.letter_id.sort()
+    })
     const url = 'http://localhost:8000/api/conversations/' + this.state.conversation_id
     fetch(url, {
       method: 'GET',
@@ -88,17 +90,26 @@ class Letters extends Component {
       <div>
         <h2>This will display all of the letters in the conversations</h2>
         <ul>
-          {this.state.letter_id.map((id, index) => 
-          <li className='letter-list-item' key={index}>
-            <button id={index} onClick={e => {
-              e.preventDefault()
-              this.handleLetterClick(id)
-            }}><h3 >Letter {index + 1}</h3></button>
-            <div>
-              {this.state.letter_content ? <p className='letter-content'>{this.state.letter_content[index]}</p> : <p></p>}
-            </div>
-          </li>)}
+          {this.state.letter_id.map((id, index) =>
+    
+            <li className='letter-list-item' key={index}>
+              {this.state.letter_content[index] ?
+                (<>
+                  <button id={index} onClick={e => {
+                    e.preventDefault()
+                    this.handleLetterClick(id)
+                  }}><h3 >Letter {index + 1}</h3></button>
+                  <div>
+                    {this.state.letter_content ? <p className='letter-content'>{this.state.letter_content[index]}</p> : <p></p>}
+                    <Link to={{pathname: 'details/'+ id, state: {letter_count: this.state.letter_count, letter_index: index, letter_id: id, conversation_id: this.state.conversation_id}}}><button>Details</button></Link>
+                  </div>
+                </>) : <></> 
+              }
+            </li>)
+
+          }
         </ul>
+        <Link to='/userpage'><button>Return</button></Link>
       </div>
     )
   }
