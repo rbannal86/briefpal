@@ -1,9 +1,12 @@
 import React, { Component } from 'react'
+import UserContext from '../../context/UserContext'
 
 class ReplyPage extends Component {
+  static contextType = UserContext
+
   state = {
     previous_content: this.props.history.location.state.previous_content,
-    user_id: this.props.history.location.state.user_id,
+    user_id: this.context.user_id,
     content: '',
     conversation_id: this.props.history.location.state.conversation_id
   }

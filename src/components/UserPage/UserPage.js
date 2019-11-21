@@ -1,20 +1,22 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
+import UserContext from '../../context/UserContext'
 
 class UserPage extends Component {
+  static contextType = UserContext
+
   state = {
-    user_id: '',
-    user_name: 'userOne',
-    conversations: [],
+    user_id: this.context.user_id,
+    user_name: this.context.user_name,
+    conversations: [].sort(),
     error: ''
   }
 
   componentDidMount() {
-    this.setState({
-      conversations: this.state.conversations.sort()
-    })
+    // this.setState({
+    //   conversations: this.state.conversations.sort()
+    // })
     const url = 'http://localhost:8000/api/users/' + this.state.user_name + '/conversations'
-    console.log(url)
     fetch(url, {
       method: 'GET',
       headers: {

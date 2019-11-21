@@ -1,10 +1,13 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
+import UserContext from '../../context/UserContext'
 
 class Letters extends Component {
+  static contextType = UserContext
+
   state = {
     conversation_id: this.props.location.state.conversation_id,
-    letter_id: [],
+    letter_id: [].sort(),
     letter_count: 0,
     error: '',
     letter_one_content: '',
@@ -51,9 +54,6 @@ class Letters extends Component {
   }
 
   componentDidMount() {
-    this.setState({
-      letter_id: this.state.letter_id.sort()
-    })
     const url = 'http://localhost:8000/api/conversations/' + this.state.conversation_id
     fetch(url, {
       method: 'GET',

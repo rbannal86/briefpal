@@ -1,44 +1,19 @@
 import React, { Component } from 'react'
+import UserContext from '../../context/UserContext'
 
 class NewLetter extends Component {
+  static contextType = UserContext
+
   state = {
     content: '',
-    user_name: '',
-    user_id: '',
+    user_name: this.context.user_name,
+    user_id: this.context.UserContext,
     error: '',
     first_letter: true
   }
 
   setContentValue = (input) => {
     this.setState({content: input})
-  }
-
-  setUserValue = (input) => {
-    this.setState({user_name: input})
-  }
-
-  handleUser = () => {
-    const url = 'http://localhost:8000/api/users/' + this.state.user_name + '/'
-    console.log(url)
-    fetch(url, {
-      method: 'Get',
-      headers: {'Content-Type': 'application/json'}
-    })
-    .then(res => {
-      if(!res.ok){
-        throw new Error(res.status)
-      }
-      return res.json()
-    })
-    .then(data => {
-      this.setState({
-        user_id: data.id
-      })
-      return data
-    })
-    .catch(error => {
-      console.log(error)
-    })
   }
 
   handleSubmit = (user_id, content) => {
@@ -80,6 +55,7 @@ class NewLetter extends Component {
   }
 
   componentDidMount() {
+
     if(!this.props.location.state.first_letter) {
       this.setState({
         first_letter: false
@@ -90,23 +66,6 @@ class NewLetter extends Component {
   render() {
     return (
       <div className='New-Letter'>
-        <form>
-          <label htmlFor='user-input'>
-            <h3>Temporary user input</h3>
-          </label>
-          <input 
-            placeholder='userOne'
-            type='text'
-            value={this.state.user_name}
-            onChange={e => this.setUserValue(e.target.value)} />
-            <button
-              onClick={e => {
-                e.preventDefault()
-                this.handleUser()
-              }}>
-                Submit User Name
-              </button>
-        </form>
         <form>
           <textarea 
             placeholder="Dear Pal,"
