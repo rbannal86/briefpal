@@ -7,7 +7,7 @@ class NewLetter extends Component {
   state = {
     content: '',
     user_name: this.context.user_name,
-    user_id: this.context.UserContext,
+    user_id: this.context.user_id,
     error: '',
     first_letter: true
   }
@@ -44,10 +44,9 @@ class NewLetter extends Component {
         })
       } else {
         this.props.history.push({
-          pathname:('/userpage')
+          pathname:('/')
         })
       }
-      
     })
     .catch(error => {
       console.log(error)
@@ -55,7 +54,10 @@ class NewLetter extends Component {
   }
 
   componentDidMount() {
-
+    this.setState({
+      user_name: this.context.user_name,
+      user_id: this.context.user_id
+    })
     if(!this.props.location.state.first_letter) {
       this.setState({
         first_letter: false

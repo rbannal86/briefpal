@@ -37,10 +37,10 @@ class UserLogin extends Component {
               .then(res => {
                 window.localStorage.setItem('user_name', user_name)
                 window.localStorage.setItem(config.TOKEN_KEY, res.authToken)
-                this.context.login()
               })
+              .then(this.props.handleLogIn)
               .then(this.props.history.push({
-                pathname:('/userpage')
+                pathname:('/')
               }))
           }
         })

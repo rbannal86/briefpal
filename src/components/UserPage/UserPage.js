@@ -13,9 +13,8 @@ class UserPage extends Component {
   }
 
   componentDidMount() {
-    //   conversations: this.state.conversations.sort()
-    // })
     const url = 'http://localhost:8000/api/users/' + this.state.user_name + '/conversations'
+    console.log(url)
     fetch(url, {
       method: 'GET',
       headers: {
@@ -44,7 +43,10 @@ class UserPage extends Component {
       <div>
         <h2>This is the user page</h2>
         <ul>
-          {this.state.conversations.map((id, index) => <li className='conversation-tab' key={id}><Link to={{pathname: '/user/letters', state:{conversation_id: id}}}><button>Conversation {index + 1}</button></Link></li>)}
+          {this.state.conversations
+          ?  this.state.conversations.map((id, index) => <li className='conversation-tab' key={id}><Link to={{pathname: '/user/letters', state:{conversation_id: id}}}><button>Conversation {index + 1}</button></Link></li>)
+          : <></>
+          }
         </ul>
         <Link to={{pathname: '/newletter', state: {first_letter: false}}}><button>Start A New Conversation</button></Link>
       </div>
