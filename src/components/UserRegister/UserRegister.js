@@ -2,10 +2,15 @@ import React, { Component } from 'react'
 import config from '../../config'
 
 class UserRegister extends Component {
+  
+
   state ={
     error: '',
     user_name: '',
   }
+
+  _isMounted = false
+
 
   submitRegister = (e) => {
     const url = 'http://localhost:8000/api/register'
@@ -36,17 +41,28 @@ class UserRegister extends Component {
             window.localStorage.setItem('user_name', user_name)
           })
           .then(res => {
-            this.setState({
+            if(this._isMounted) {
+              this.setState({
               user_name: user_name
-            })
+            })}
+            
           })
-          .then(this.props.handleLogIn)
+          
           .then(this.props.history.push({
             pathname:('/'),
             state:{ first_letter: true, user_name: user_name, user_id: window.localStorage.user_id }
           }))
+          .then(this.props.handleLogIn)
       }
     })
+  }
+
+  componentDidMount() {
+    this._isMounted = true
+  }
+
+  componentWillUnmount() {
+    this._isMounted = false
   }
 
   render() {
