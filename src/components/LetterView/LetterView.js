@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
-import LetterApiService from '../../services/letters-api-service'
 import UserContext from '../../context/UserContext'
 
 class LetterView extends Component {
@@ -58,5 +57,3 @@ class LetterView extends Component {
 }
 
 export default LetterView
-
-//this.props.history.location.state.letter_index + 1 < this.props.history.location.state.letter_count

@@ -14,7 +14,6 @@ class UserPage extends Component {
 
   componentDidMount() {
     const url = 'http://localhost:8000/api/users/' + this.state.user_name + '/conversations'
-    console.log(url)
     fetch(url, {
       method: 'GET',
       headers: {

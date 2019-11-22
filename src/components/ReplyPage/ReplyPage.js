@@ -29,7 +29,6 @@ class ReplyPage extends Component {
       })
     })
     .then(res => {
-      console.log(res)
       if(!res.ok){
         this.setState({ error: res.error })
         throw new Error(res.status)

@@ -21,7 +21,6 @@ class App extends Component {
   }
 
   handler = () => {
-    console.log('handled')
     this.setState({
       logged_in: true,
       user_name: window.localStorage.user_name,
@@ -30,7 +29,6 @@ class App extends Component {
   }
 
   handleUserId = () => {
-    console.log('fetching id')
     let user_name = window.localStorage.user_name
       const url = 'http://localhost:8000/api/users/' + user_name
       fetch(url, {
@@ -67,7 +65,6 @@ class App extends Component {
   }
 
   componentDidMount() {
-    // console.log(this.props.history.location.logged_in)
     if(window.localStorage.user_name){
       this.setState({
         logged_in: true,

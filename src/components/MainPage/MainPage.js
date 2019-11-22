@@ -12,7 +12,6 @@ class MainPage extends Component {
   }
 
   componentDidMount() {
-    console.log(typeof this.props.location.state === 'undefined')
     if(typeof this.props.location.state !== 'undefined'){
       this.setState({
         first_time: true

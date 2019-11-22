@@ -30,7 +30,6 @@ class NewLetter extends Component {
       }),
     })
     .then(res => {
-      console.log(res)
       if(!res.ok){
         this.setState({error: res.error})
         throw new Error(res.status)
@@ -54,7 +53,6 @@ class NewLetter extends Component {
   }
 
   componentDidMount() {
-    console.log(this.context.user_name)
     this.setState({
       user_name: this.context.user_name,
       user_id: this.context.user_id

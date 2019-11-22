@@ -18,7 +18,6 @@ class UserRegister extends Component {
     let password = document.getElementById('register-form-user_password').value
     
     let body = { user_name: user_name, password: password}
-    console.log(body)
     fetch(url, {
       method: 'POST',
       headers: {
@@ -36,7 +35,6 @@ class UserRegister extends Component {
       } else {
         res.json()
           .then(res => {
-            console.log(user_name)
             window.localStorage.setItem(config.TOKEN_KEY, res)
             window.localStorage.setItem('user_name', user_name)
           })
