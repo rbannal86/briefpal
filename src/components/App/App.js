@@ -9,7 +9,8 @@ import LetterView from '../LetterView/LetterView'
 import ReplyPage from '../ReplyPage/ReplyPage'
 import UserLogin from '../UserLogin/UserLogin'
 import UserContext from '../../context/UserContext'
-import UserRegister from '../UserRegister/UserRegister';
+import UserRegister from '../UserRegister/UserRegister'
+import About from '../About/About'
 
 class App extends Component {
 
@@ -29,6 +30,7 @@ class App extends Component {
   }
 
   handleUserId = () => {
+    console.log('fetching id')
     let user_name = window.localStorage.user_name
       const url = 'http://localhost:8000/api/users/' + user_name
       fetch(url, {
@@ -54,7 +56,7 @@ class App extends Component {
   }
 
   logout = (e) => {
-    e.preventDefault()
+    // e.preventDefault()
     window.localStorage.removeItem('client_auth_token')
     window.localStorage.removeItem('user_name')
     this.setState({
@@ -65,9 +67,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    // this.setState({
-    //   user_name: window.localStorage.user_name
-    // })
+    // console.log(this.props.history.location.logged_in)
     if(window.localStorage.user_name){
       this.setState({
         logged_in: true,
@@ -101,7 +101,7 @@ class App extends Component {
         <div className='App'>
           <header>
               {(this.state.logged_in)
-              ? <nav><Link to='/'><button>home</button></Link> | <button onClick={e => this.logout(e)}>logout</button></nav>
+              ? <nav><Link to='/'><button>home</button></Link> | <Link to='/'><button onClick={e => this.logout(e)}>logout</button></Link></nav>
               : <nav><Link to='/'><button>home</button></Link> | <Link to='/register'><button>register</button></Link> | <Link to='/login'><button>login</button></Link></nav>}
             <h1>briefPal</h1>
           </header>
@@ -115,6 +115,7 @@ class App extends Component {
             <Route exact path='/reply' component={ReplyPage} />
             <Route exact path='/login' render={(props) => <UserLogin {...props} handleLogIn = {this.handleLogIn} />}/>
             <Route exact path='/register' render={(props) => <UserRegister {...props} handleLogIn = {this.handleLogIn} />}/>
+            <Route exact path='/about' component={About} />
           </main>
         </div>
       </UserContext.Provider>

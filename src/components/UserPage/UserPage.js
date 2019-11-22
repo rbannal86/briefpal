@@ -41,7 +41,7 @@ class UserPage extends Component {
   render() {    
     return(
       <div>
-        <h2>This is the user page</h2>
+        <h2>{this.state.user_name}'s Page</h2>
         <ul>
           {this.state.conversations
           ?  this.state.conversations.map((id, index) => <li className='conversation-tab' key={id}><Link to={{pathname: '/user/letters', state:{conversation_id: id}}}><button>Conversation {index + 1}</button></Link></li>)

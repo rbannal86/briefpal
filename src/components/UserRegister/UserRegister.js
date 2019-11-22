@@ -6,6 +6,7 @@ class UserRegister extends Component {
     error: '',
     user_name: '',
   }
+
   submitRegister = (e) => {
     const url = 'http://localhost:8000/api/register'
     let user_name = document.getElementById('register-form-user_name').value
@@ -41,8 +42,8 @@ class UserRegister extends Component {
           })
           .then(this.props.handleLogIn)
           .then(this.props.history.push({
-            pathname:('/newletter'),
-            state:{first_letter: true, user_name: user_name, user_id: window.localStorage.user_id}
+            pathname:('/'),
+            state:{ first_letter: true, user_name: user_name, user_id: window.localStorage.user_id }
           }))
       }
     })

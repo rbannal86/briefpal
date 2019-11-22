@@ -9,7 +9,7 @@ class LetterView extends Component {
   state = {
     conversation_id: this.props.history.location.state.conversation_id,
     id: this.props.match.params.id,
-    user_id: this.context.user_id,
+    user_id: this.context.user_id.toString(10),
     sender: '',
     recipient: '',
     error: '',
@@ -44,8 +44,12 @@ class LetterView extends Component {
     return(
     <div>
       <h3>This is a page for a specific letter</h3>
+      {(this.state.sender === this.state.user_id)
+      ? <h4>You sent:</h4>
+      : <h4>You received:</h4>
+      }
       <p>{this.state.content}</p>
-      {((this.state.sender === this.state.user_id) || (this.props.history.location.state.letter_index + 1 <= this.props.history.location.state.letter_count)) ?  <></> : <Link to={{pathname: '/reply', state:{previous_content: this.state.content, conversation_id: this.state.conversation_id}}}><button>Reply</button></Link>}
+      {((this.state.sender === this.state.user_id) || (this.props.history.location.state.letter_count === 3)) ?  <></> : <Link to={{pathname: '/reply', state:{previous_content: this.state.content, conversation_id: this.state.conversation_id}}}><button>Reply</button></Link>}
       <Link to={{pathname: '/user/letters', state: {conversation_id: this.state.conversation_id}}}><button>Back</button></Link>
     </div>
     )

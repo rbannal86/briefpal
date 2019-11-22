@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import UserContext from '../../context/UserContext'
+import './Letters.css'
 
 class Letters extends Component {
   static contextType = UserContext
@@ -18,13 +19,16 @@ class Letters extends Component {
   }
 
   handleLetterClick = (id) => {
-
-    // let newOpened = this.state.open_letters
-    // console.log(id)
-    // newOpened.push(this.target.key)
-    this.setState({
-      open_letters: [...this.state.open_letters, id]
-    })
+    if(!this.state.open_letters.includes(id)) {
+      this.setState({
+        open_letters: [...this.state.open_letters, id]
+      })
+    } else {
+      this.setState({
+        open_letters: this.state.open_letters.filter(check => check !== id)
+      })
+    }
+    
   }
 
   fetchLetters = (id, index) => {
@@ -88,7 +92,7 @@ class Letters extends Component {
   render() {
     return(
       <div>
-        <h2>This will display all of the letters in the conversations</h2>
+        <h2>{this.context.user_name}'s Letters in Conversation {this.state.conversation_id}</h2>
         <ul>
           {this.state.letter_id.map((id, index) =>
     
@@ -100,7 +104,7 @@ class Letters extends Component {
                     this.handleLetterClick(id)
                   }}><h3 >Letter {index + 1}</h3></button>
                   <div>
-                    {this.state.letter_content ? <p className='letter-content'>{this.state.letter_content[index]}</p> : <p></p>}
+                    {this.state.letter_content ? <p className={'letter-content ' + (this.state.open_letters.includes(id) ? 'show' : 'hidden')}>{this.state.letter_content[index]}</p> : <p></p>}
                     <Link to={{pathname: 'details/'+ id, state: {letter_count: this.state.letter_count, letter_index: index, letter_id: id, conversation_id: this.state.conversation_id}}}><button>Details</button></Link>
                   </div>
                 </>) : <></> 

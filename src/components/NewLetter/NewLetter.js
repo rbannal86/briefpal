@@ -44,7 +44,7 @@ class NewLetter extends Component {
         })
       } else {
         this.props.history.push({
-          pathname:('/')
+          pathname:('/userpage')
         })
       }
     })
@@ -54,6 +54,7 @@ class NewLetter extends Component {
   }
 
   componentDidMount() {
+    console.log(this.context.user_name)
     this.setState({
       user_name: this.context.user_name,
       user_id: this.context.user_id
