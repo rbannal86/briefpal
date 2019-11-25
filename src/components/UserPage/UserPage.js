@@ -15,7 +15,11 @@ class UserPage extends Component {
   }
 
   componentDidMount() {
-    const url = config.API_ENDPOINT + 'api/users/' + this.state.user_name + '/conversations'
+    if(typeof this.state.user_name === 'undefined') {
+      this.props.history.push({
+        pathname:('/')
+      })
+    } else {const url = config.API_ENDPOINT + 'api/users/' + this.state.user_name + '/conversations'
     fetch(url, {
       method: 'GET',
       headers: {
@@ -36,7 +40,8 @@ class UserPage extends Component {
       })
       .catch(error => {
         console.log(error)
-      })
+      })}
+    
     }
 
   render() {    
