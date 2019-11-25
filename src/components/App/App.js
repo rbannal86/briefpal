@@ -11,6 +11,7 @@ import UserLogin from '../UserLogin/UserLogin'
 import UserContext from '../../context/UserContext'
 import UserRegister from '../UserRegister/UserRegister'
 import About from '../About/About'
+import './App.css'
 
 class App extends Component {
 
@@ -96,11 +97,12 @@ class App extends Component {
         user_id: this.state.user_id,
       }}>
         <div className='App'>
-          <header>
+          <header className='header-content'>
               {(this.state.logged_in)
-              ? <nav><Link to='/'><button>home</button></Link> | <Link to='/'><button onClick={e => this.logout(e)}>logout</button></Link></nav>
-              : <nav><Link to='/'><button>home</button></Link> | <Link to='/register'><button>register</button></Link> | <Link to='/login'><button>login</button></Link></nav>}
-            <h1>briefPal</h1>
+              ? <nav className='nav-bar-content'><Link to='/'><button className='nav-button'>home</button></Link> | <Link to='/'><button className='nav-button' onClick={e => this.logout(e)}>logout</button></Link></nav>
+              : <nav className='nav-bar-content'><Link to='/'><button className='nav-button'>home</button></Link> | <Link to='/register'><button className='nav-button'>register</button></Link> | <Link to='/login'><button className='nav-button'>login</button></Link></nav>}
+            <h1 className='header-copy'>briefPal</h1>
+            <h4 className='header-copy'>anonymous letter writing.</h4>
           </header>
           <main >
             <Route exact path='/' component={MainPage} />

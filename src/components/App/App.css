@@ -1,0 +1,29 @@
+.header-content {
+  text-align: center;
+  margin-bottom: 0;
+  margin-top: 0;
+  background-color: #173340;
+  width: 100%;
+  padding-bottom: 10%;
+}
+
+.nav-bar-content {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  background: none;
+  margin-bottom: 10%;
+}
+
+.nav-button {
+  width: 30vw;
+  border: none;
+  font-size: 1.3rem;
+  background-color: #173340;
+}
+
+.header-copy {
+  margin-bottom: 0;
+  margin-top: 0;
+  background: none;
+}

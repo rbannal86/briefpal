@@ -1,0 +1,8 @@
+.reply-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.previous-letter {
+  height: auto;
+}

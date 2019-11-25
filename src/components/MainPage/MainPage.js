@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import UserContext from '../../context/UserContext'
+import './MainPage.css'
 
 class MainPage extends Component {
   static contextType = UserContext
@@ -27,12 +28,11 @@ class MainPage extends Component {
     return(
       <div className='main-page-content'>
         {window.localStorage.user_name
-          ?   (<div><h2>Hello, {window.localStorage.user_name}</h2>
+          ?   (<div><h2>hello, {window.localStorage.user_name}</h2>
               {this.state.first_time
-              ? <Link to={{pathname:'/newletter', state: {first_letter: true}}}><button>Welcome. Ready to get started?</button></Link>
-              : <Link to='/userpage'><button className='main-page-button'>Your Page</button></Link>}</div>)
-          : <Link to='/about'><button className='main-page-button'>What Is This?</button></Link>}
-        
+              ? <Link to={{pathname:'/newletter', state: {first_letter: true}}}><button id='register-return-button'>welcome. ready to get started?</button></Link>
+              : <Link to='/userpage'><button className='main-page-button'>your page</button></Link>}</div>)
+          : <Link to='/about'><button className='main-page-button' id='onboarding-button'>what is this?</button></Link>}
       </div>
     )
   }

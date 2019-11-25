@@ -1,3 +1,60 @@
 .hidden {
   display: none;
 }
+
+.show {}
+
+.letter-list-content {
+  text-align: center;
+}
+
+.letter-list {
+  margin-left: 10%;
+  text-align: left;
+  padding-left: 0;
+}
+
+.letter-list-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-right: 10%;
+}
+
+.letter-list-header {
+  font-size: 1.7rem;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.letter-button {
+  border: none;
+  font-size: 1.3rem;
+  border-bottom: 1px solid #173340;
+}
+
+.letter-list {
+  list-style: none;
+}
+
+.letter-open {
+  display: flex;
+  flex-direction: column;
+}
+
+.letter-content {
+  width: 80vw;
+}
+
+.detail-button {
+  border: none;
+  border-bottom: 1px solid #173340;
+  margin-bottom: 25%;
+}
+
+.return-button {
+  width: 40vw;
+  font-size: 1.3rem;
+  border: none;
+  text-align: center;
+}

@@ -91,21 +91,22 @@ class Letters extends Component {
   }
   render() {
     return(
-      <div>
-        <h2>{this.context.user_name}'s Letters in Conversation {this.state.conversation_id}</h2>
-        <ul>
+      <div className='letter-list-content'>
+        <h4>{this.context.user_name}'s letters in this conversation</h4>
+        <ul className='letter-list'>
           {this.state.letter_id.map((id, index) =>
     
             <li className='letter-list-item' key={index}>
               {this.state.letter_content[index] ?
                 (<>
-                  <button id={index} onClick={e => {
+                  <button className='letter-button' id={index} onClick={e => {
                     e.preventDefault()
                     this.handleLetterClick(id)
-                  }}><h3 >Letter {index + 1}</h3></button>
-                  <div>
+                  }}><h3 className='letter-list-header'>letter {index + 1}</h3></button>
+                  <Link to={{pathname: 'details/'+ id, state: {letter_count: this.state.letter_count, letter_index: index, letter_id: id, conversation_id: this.state.conversation_id}}}><button className='detail-button'>details</button></Link>
+                  <div className='letter-open'>
                     {this.state.letter_content ? <p className={'letter-content ' + (this.state.open_letters.includes(id) ? 'show' : 'hidden')}>{this.state.letter_content[index]}</p> : <p></p>}
-                    <Link to={{pathname: 'details/'+ id, state: {letter_count: this.state.letter_count, letter_index: index, letter_id: id, conversation_id: this.state.conversation_id}}}><button>Details</button></Link>
+                    
                   </div>
                 </>) : <></> 
               }
@@ -113,7 +114,7 @@ class Letters extends Component {
 
           }
         </ul>
-        <Link to='/userpage'><button>Return</button></Link>
+        <Link to='/userpage'><button className='return-button'>return</button></Link>
       </div>
     )
   }

@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import config from '../../config'
+import './UserRegister.css'
 
 class UserRegister extends Component {
   
@@ -16,8 +17,14 @@ class UserRegister extends Component {
     const url = 'http://localhost:8000/api/register'
     let user_name = document.getElementById('register-form-user_name').value
     let password = document.getElementById('register-form-user_password').value
+
     
-    let body = { user_name: user_name, password: password}
+    if(password.length < 6){
+      this.setState({
+        error: 'password must be six or more characters.'
+      })
+    } else{
+      let body = { user_name: user_name, password: password}
     fetch(url, {
       method: 'POST',
       headers: {
@@ -53,6 +60,10 @@ class UserRegister extends Component {
           .then(this.props.handleLogIn)
       }
     })
+    .catch(error => console.log(error))
+    }
+    
+    
   }
 
   componentDidMount() {
@@ -66,7 +77,7 @@ class UserRegister extends Component {
   render() {
     return(
       <div>
-        <h3>USER REGISTER PAGE</h3>
+        <h3>register here to begin writing letters</h3>
         <form className='register-form' onSubmit={e => {
           e.preventDefault()
           this.submitRegister()}}>
@@ -75,17 +86,17 @@ class UserRegister extends Component {
         </div>
         <div className='user_name'>
           <label htmlFor='register-form-user_name'>
-            USER NAME
-            <input required id='register-form-user_name' />
+            user name
+            <input required id='register-form-user_name' className='form-input'/>
           </label>
         </div>
         <div className='user_password'>
           <label htmlFor='register-form-user_password'>
-            PASSWORD
-            <input required id='register-form-user_password' />
+            password
+            <input required id='register-form-user_password' className='form-input' type='password'/>
           </label>
         </div>
-        <button>REGISTER</button>
+        <button id='register-button'>register</button>
         </form>
       </div>
     )

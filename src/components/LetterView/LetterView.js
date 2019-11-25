@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import UserContext from '../../context/UserContext'
+import './LetterView.css'
 
 class LetterView extends Component {
   static contextType = UserContext
@@ -41,15 +42,16 @@ class LetterView extends Component {
 
   render() {
     return(
-    <div>
-      <h3>This is a page for a specific letter</h3>
+    <div className='letterview-content'>
       {(this.state.sender === this.state.user_id)
-      ? <h4>You sent:</h4>
-      : <h4>You received:</h4>
+      ? <h4>you sent:</h4>
+      : <h4>you received:</h4>
       }
-      <p>{this.state.content}</p>
-      {((this.state.sender === this.state.user_id) || (this.props.history.location.state.letter_count === 3)) ?  <></> : <Link to={{pathname: '/reply', state:{previous_content: this.state.content, conversation_id: this.state.conversation_id}}}><button>Reply</button></Link>}
-      <Link to={{pathname: '/user/letters', state: {conversation_id: this.state.conversation_id}}}><button>Back</button></Link>
+      <p className='letter-content'>{this.state.content}</p>
+      <div className='letter-nav-buttons'>
+        {((this.state.sender === this.state.user_id) || (this.props.history.location.state.letter_count === 3)) ?  <></> : <Link to={{pathname: '/reply', state:{previous_content: this.state.content, conversation_id: this.state.conversation_id}}}><button>Reply</button></Link>}
+        <Link to={{pathname: '/user/letters', state: {conversation_id: this.state.conversation_id}}}><button className='back-button'>Back</button></Link>
+      </div>
     </div>
     )
 

@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import UserContext from '../../context/UserContext'
+import './UserPage.css'
 
 class UserPage extends Component {
   static contextType = UserContext
@@ -39,15 +40,15 @@ class UserPage extends Component {
 
   render() {    
     return(
-      <div>
-        <h2>{this.state.user_name}'s Page</h2>
-        <ul>
+      <div className='conversations-content'>
+        <h4>these are your conversations, {this.state.user_name}</h4>
+        <ul className='conversation-list'>
           {this.state.conversations
-          ?  this.state.conversations.map((id, index) => <li className='conversation-tab' key={id}><Link to={{pathname: '/user/letters', state:{conversation_id: id}}}><button>Conversation {index + 1}</button></Link></li>)
+          ?  this.state.conversations.map((id, index) => <li className='conversation-tab' key={id}><Link to={{pathname: '/user/letters', state:{conversation_id: id}}}><button className='conversation-button'>conversation {index + 1}</button></Link></li>)
           : <></>
           }
         </ul>
-        <Link to={{pathname: '/newletter', state: {first_letter: false}}}><button>Start A New Conversation</button></Link>
+        <Link to={{pathname: '/newletter', state: {first_letter: false}}}><button className='newconversation-button'>start a new conversation</button></Link>
       </div>
     )
   }

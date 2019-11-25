@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 import UserContext from '../../context/UserContext'
+import './NewLetter.css'
 
 class NewLetter extends Component {
   static contextType = UserContext
@@ -68,20 +70,25 @@ class NewLetter extends Component {
     return (
       <div className='New-Letter'>
         <form>
-          <textarea 
+          <label id='letter-header' htmlFor='letter-content'>
+            write your letter here.
+          </label>
+          <textarea
+            className='letter-content' 
             placeholder="Dear Pal,"
             value={this.state.content}
             onChange={e => this.setContentValue(e.target.value)}
           ></textarea>
           <div id="submit-buttons">
             <button 
+            className = 'new-letter-button'
             type="submit"
             onClick={e => {
               e.preventDefault()
               this.handleSubmit(this.state.user_id, this.state.content)
             }}
             >Send</button>
-            <button type="reset">Cancel</button>
+            <Link to='/'><button className = 'new-letter-button' type="reset">Cancel</button></Link>
           </div>
         </form>
       </div>

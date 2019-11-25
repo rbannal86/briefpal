@@ -66,7 +66,7 @@ class UserLogin extends Component {
           <div className='user_password'>
             <label htmlFor='login-form-user_password'>
               PASSWORD
-              <input required id='login-form-user_password' />
+              <input required id='login-form-user_password' type='password'/>
             </label>
           </div>
           <button>SUBMIT</button>

@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import UserContext from '../../context/UserContext'
+import './ReplyPage.css'
 
 class ReplyPage extends Component {
   static contextType = UserContext
@@ -47,12 +48,13 @@ class ReplyPage extends Component {
 
   render() {
     return(
-      <div>
+      <div className='reply-content'>
         <h3>LETTER YOU ARE REPLYING TO</h3>
-        <p>{this.state.previous_content}</p>
+        <p className='letter-content previous-letter'>{this.state.previous_content}</p>
         <h3>REPLY TO THE LETTER</h3>
         <form>
           <textarea 
+            className='letter-content'
             placeholder="Dear Pal,"
             value={this.state.content}
             onChange={e => this.setContentValue(e.target.value)}

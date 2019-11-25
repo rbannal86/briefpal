@@ -1,0 +1,30 @@
+.about-page-content {
+  line-height: 1.4;
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+#quotation {
+  width: 70vw;
+  justify-content: center;
+  font-size: .8rem;
+}
+
+#quotation-attribution {
+  text-align-last: right;
+}
+
+#about-hook {
+  font-style: italic;
+  font-weight: bold;
+  margin-top: 0;
+}
+
+#get-started-button {
+  margin: 0 auto;
+  border: none;
+  font-size: 1.3rem;
+  font-weight: bold;
+  display: flex;
+  justify-content: space-around;
+}
