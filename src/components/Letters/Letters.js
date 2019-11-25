@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import UserContext from '../../context/UserContext'
+import config from '../../config'
 import './Letters.css'
 
 class Letters extends Component {
@@ -35,7 +36,7 @@ class Letters extends Component {
     if(!id){
       return
     } else {
-    const url = 'http://localhost:8000/api/letters/getletters/' + id
+    const url = config.API_ENDPOINT + 'api/letters/getletters/' + id
         fetch(url, {
           method: 'GET',
           header: {
@@ -58,7 +59,7 @@ class Letters extends Component {
   }
 
   componentDidMount() {
-    const url = 'http://localhost:8000/api/conversations/' + this.state.conversation_id
+    const url = config.API_ENDPOINT + 'api/conversations/' + this.state.conversation_id
     fetch(url, {
       method: 'GET',
       header: {

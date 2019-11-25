@@ -14,7 +14,7 @@ class UserLogin extends Component {
   }
 
   submitLogin = (e) => {
-    const url = 'http://localhost:8000/api/auth/login'
+    const url = config.API_ENDPOINT + 'api/auth/login'
     let user_name = document.getElementById('login-form-user_name').value
     let user_password = document.getElementById('login-form-user_password').value
     let body = {user_name: user_name, password: user_password}

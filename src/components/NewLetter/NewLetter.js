@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import UserContext from '../../context/UserContext'
+import config from '../../config'
 import './NewLetter.css'
 
 class NewLetter extends Component {
@@ -20,7 +21,7 @@ class NewLetter extends Component {
 
   handleSubmit = (user_id, content) => {
     user_id = user_id.toString(10)
-    const url = 'http://localhost:8000/api/letters/newletter'
+    const url = config.API_ENDPOINT + 'api/letters/newletter'
     fetch(url, {
       method: 'POST',
       headers: {

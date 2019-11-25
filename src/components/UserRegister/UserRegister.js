@@ -14,7 +14,7 @@ class UserRegister extends Component {
 
 
   submitRegister = (e) => {
-    const url = 'http://localhost:8000/api/register'
+    const url = config.API_ENDPOINT + 'api/register'
     let user_name = document.getElementById('register-form-user_name').value
     let password = document.getElementById('register-form-user_password').value
 

@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import UserContext from '../../context/UserContext'
+import config from '../../config'
 import './LetterView.css'
 
 class LetterView extends Component {
@@ -17,7 +18,7 @@ class LetterView extends Component {
   }
 
   componentDidMount() {
-    const url = 'http://localhost:8000/api/letters/getletters/' + this.state.id
+    const url = config.API_ENDPOINT + 'api/letters/getletters/' + this.state.id
     fetch(url, {
       method: 'GET',
       header: {

@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import UserContext from '../../context/UserContext'
+import config from '../../config'
 import './UserPage.css'
 
 class UserPage extends Component {
@@ -14,7 +15,7 @@ class UserPage extends Component {
   }
 
   componentDidMount() {
-    const url = 'http://localhost:8000/api/users/' + this.state.user_name + '/conversations'
+    const url = config.API_ENDPOINT + 'api/users/' + this.state.user_name + '/conversations'
     fetch(url, {
       method: 'GET',
       headers: {

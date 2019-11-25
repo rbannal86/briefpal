@@ -11,6 +11,7 @@ import UserLogin from '../UserLogin/UserLogin'
 import UserContext from '../../context/UserContext'
 import UserRegister from '../UserRegister/UserRegister'
 import About from '../About/About'
+import config from '../../config'
 import './App.css'
 
 class App extends Component {
@@ -31,7 +32,7 @@ class App extends Component {
 
   handleUserId = () => {
     let user_name = window.localStorage.user_name
-      const url = 'http://localhost:8000/api/users/' + user_name
+      const url = config.API_ENDPOINT + 'api/users/' + user_name
       fetch(url, {
         method: 'GET',
         headers: {'content-type': 'application/json'}
@@ -72,7 +73,7 @@ class App extends Component {
         user_name: window.localStorage.user_name,
       })  
       let user_name = window.localStorage.user_name
-      const url = 'http://localhost:8000/api/users/' + user_name
+      const url = config.API_ENDPOINT + 'api/users/' + user_name
       fetch(url, {
         method: 'GET',
         headers: {'content-type': 'application/json'}

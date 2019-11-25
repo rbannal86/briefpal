@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import UserContext from '../../context/UserContext'
+import config from '../../config'
 import './ReplyPage.css'
 
 class ReplyPage extends Component {
@@ -19,7 +20,7 @@ class ReplyPage extends Component {
 
   handleSubmit = (user_id, content) => {
     user_id = user_id.toString(10)
-    const url = 'http://localhost:8000/api/conversations/' + this.state.conversation_id + '/reply'
+    const url = config.API_ENDPOINT + 'api/conversations/' + this.state.conversation_id + '/reply'
     fetch(url, {
       method: 'POST',
       headers: {
