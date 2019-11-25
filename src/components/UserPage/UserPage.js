@@ -16,10 +16,13 @@ class UserPage extends Component {
 
   componentDidMount() {
     if(typeof this.state.user_name === 'undefined') {
+      console.log('whoa')
       this.props.history.push({
         pathname:('/')
       })
-    } else {const url = config.API_ENDPOINT + 'api/users/' + this.state.user_name + '/conversations'
+    } else {
+    console.log('nice')  
+    const url = config.API_ENDPOINT + 'api/users/' + this.state.user_name + '/conversations'
     fetch(url, {
       method: 'GET',
       headers: {
@@ -41,7 +44,6 @@ class UserPage extends Component {
       .catch(error => {
         console.log(error)
       })}
-    
     }
 
   render() {    
