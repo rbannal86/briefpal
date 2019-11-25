@@ -2,8 +2,6 @@
   display: none;
 }
 
-.show {}
-
 .letter-list-content {
   text-align: center;
 }
@@ -57,4 +55,11 @@
   font-size: 1.3rem;
   border: none;
   text-align: center;
+  border-bottom: 2px solid #173340;
+}
+
+@media only screen and (min-width: 768px) {
+  .detail-button {
+    margin-bottom: 5%;
+  }
 }

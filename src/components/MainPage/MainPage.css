@@ -5,16 +5,14 @@
 .main-page-button {
   border: none;
   font-size: 1.3rem;
+  border-bottom: 2px solid #173340;
 }
 
 #onboarding-button {
   font-size: 1.5rem;
   font-weight: bold;
   margin-top: 20%;
-}
-
-#onboarding-button:hover {
-  font-weight: bolder;
+  border-bottom: 2px solid #173340;
 }
 
 #register-return-button {

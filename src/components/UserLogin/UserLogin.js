@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import config from '../../config'
 import UserContext from '../../context/UserContext'
+import './UserLogin.css'
+
 
 class UserLogin extends Component {
   static contextType = UserContext
@@ -49,8 +51,8 @@ class UserLogin extends Component {
 
   render() {
     return(
-      <div>
-        <h3>USER LOGIN PAGE</h3>
+      <div className='login-content'>
+        <h3 className='login-header'>login</h3>
         <form className='login-form' onSubmit={e => {
           e.preventDefault()
           this.submitLogin(e)}}>
@@ -59,17 +61,17 @@ class UserLogin extends Component {
           </div>
           <div className='user_name'>
             <label htmlFor='login-form-user_name'>
-              USER NAME
-              <input required id='login-form-user_name' />
+              user name
+              <input required className='form-input' id='login-form-user_name' />
             </label>
           </div>
           <div className='user_password'>
             <label htmlFor='login-form-user_password'>
-              PASSWORD
-              <input required id='login-form-user_password' type='password'/>
+              password
+              <input required className='form-input' id='login-form-user_password' type='password'/>
             </label>
           </div>
-          <button>SUBMIT</button>
+          <button id='submit-button'>login</button>
         </form>
       </div>
     )

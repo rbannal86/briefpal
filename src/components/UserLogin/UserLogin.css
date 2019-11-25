@@ -1,0 +1,36 @@
+.login-content {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+
+}
+
+#login-error {
+  font-weight: bold;
+  color: red;
+}
+
+#submit-button {
+  border-bottom: 2px solid #173340;
+  margin-left: 30%;
+}
+
+.login-form {
+  margin-right: 0;
+  text-align: left;
+}
+
+.form-input {
+  width: 70vw;
+}
+
+@media only screen and (min-width: 768px) {
+  .login-header {
+    font-size: 3rem;
+  }
+
+  #submit-button {
+    margin-left: 0;
+    font-size: 2rem;
+  }
+}

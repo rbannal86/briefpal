@@ -11,7 +11,7 @@
 
 .letter-content {
   width: 90vw;
-  height: 60vh;
+  min-height: 60vh;
   margin-top: 5%;
   border: solid 2px #173340;
   background-color: #F7F0E4;
@@ -24,4 +24,20 @@
   font-weight: bold;
   border: none;
   width: 40vw;
+  border-bottom: 2px solid #173340;
+}
+
+@media only screen and (min-width: 768px) {
+  #letter-header {
+    font-size: 1.5rem;
+  }
+
+  .letter-content{
+    font-size: 1.5rem;
+  }
+
+  form{
+    display: flex;
+    flex-direction: column;
+  }
 }

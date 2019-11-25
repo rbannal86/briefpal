@@ -12,6 +12,7 @@ h3 {
 label {
   font-weight: bold;
   font-size: 1.3rem;
+  margin-right: 5%;
 }
 
 .register-form {
@@ -31,4 +32,11 @@ label {
   border: none;
   font-size: 1.3rem;
   font-weight: bold;
+}
+
+@media only screen and (min-width: 1024px) {
+  .form-input{
+    width: 80vw;
+    font-size: 2rem;
+  }
 }

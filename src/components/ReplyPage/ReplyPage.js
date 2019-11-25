@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 import UserContext from '../../context/UserContext'
 import './ReplyPage.css'
 
@@ -49,9 +50,9 @@ class ReplyPage extends Component {
   render() {
     return(
       <div className='reply-content'>
-        <h3>LETTER YOU ARE REPLYING TO</h3>
+        <h3>previous letter</h3>
         <p className='letter-content previous-letter'>{this.state.previous_content}</p>
-        <h3>REPLY TO THE LETTER</h3>
+        <h3>your response</h3>
         <form>
           <textarea 
             className='letter-content'
@@ -67,7 +68,7 @@ class ReplyPage extends Component {
               this.handleSubmit(this.state.user_id, this.state.content)
             }}
             >Send</button>
-            <button type="reset">Cancel</button>
+            <Link to='/userpage'><button type="reset">Cancel</button></Link>
           </div>
         </form>
       </div>

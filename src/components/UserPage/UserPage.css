@@ -19,5 +19,19 @@
 .newconversation-button {
   border: none;
   font-size: .8rem;
+  border-bottom: 2px solid #173340;
+}
 
+@media only screen and (min-width: 768px) {
+  .conversation-list {
+    text-align: center;
+  }
+
+  .conversation-list {
+    padding-left: 0;
+  }
+
+  .newconversation-button {
+    font-size: 1.3rem;
+  }
 }
