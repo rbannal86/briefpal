@@ -1,9 +1,14 @@
+.header-section {
+  background-color: #173340;
+}
+
 .header-content {
   text-align: center;
   margin-bottom: 0;
   margin-top: 0;
   background-color: #173340;
   padding-bottom: 5%;
+  width: 100%;
 }
 
 .nav-bar-content {
@@ -16,7 +21,7 @@
 }
 
 .nav-button {
-  width: 40vw;
+  width: 30vw;
   border: none;
   font-size: 1.3rem;
   background-color: #173340;

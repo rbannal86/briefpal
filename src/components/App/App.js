@@ -98,13 +98,15 @@ class App extends Component {
         user_id: this.state.user_id,
       }}>
         <div className='App'>
-          <header className='header-content'>
-              {(this.state.logged_in)
-              ? <nav className='nav-bar-content'><Link to='/'><button className='nav-button'>home</button></Link> | <Link to='/'><button className='nav-button' onClick={e => this.logout(e)}>logout</button></Link></nav>
-              : <nav className='nav-bar-content'><Link to='/'><button className='nav-button'>home</button></Link> | <Link to='/register'><button className='nav-button'>register</button></Link> | <Link to='/login'><button className='nav-button'>login</button></Link></nav>}
-            <h1 className='header-copy'>briefPal</h1>
-            <h4 className='header-copy'>anonymous letter writing.</h4>
-          </header>
+          <section className='header-section'>
+            <header className='header-content'>
+                {(this.state.logged_in)
+                ? <nav className='nav-bar-content'><Link to='/'><button className='nav-button'>home</button></Link> | <Link to='/'><button className='nav-button' onClick={e => this.logout(e)}>logout</button></Link></nav>
+                : <nav className='nav-bar-content'><Link to='/'><button className='nav-button'>home</button></Link> | <Link to='/register'><button className='nav-button'>register</button></Link> | <Link to='/login'><button className='nav-button'>login</button></Link></nav>}
+              <h1 className='header-copy'>briefPal</h1>
+              <h4 className='header-copy'>anonymous letter writing.</h4>
+            </header>
+          </section>
           <main >
             <Route exact path='/' component={MainPage} />
             <Route exact path='/newletter' component={NewLetter} />
