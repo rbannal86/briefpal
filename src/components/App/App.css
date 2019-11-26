@@ -3,8 +3,7 @@
   margin-bottom: 0;
   margin-top: 0;
   background-color: #173340;
-  width: 100%;
-  padding-bottom: 10%;
+  padding-bottom: 5%;
 }
 
 .nav-bar-content {
@@ -16,10 +15,11 @@
 }
 
 .nav-button {
-  width: 30vw;
+  width: 40vw;
   border: none;
   font-size: 1.3rem;
   background-color: #173340;
+  padding: 0;
 }
 
 .header-copy {

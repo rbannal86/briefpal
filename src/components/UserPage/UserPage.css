@@ -4,8 +4,8 @@
 
 .conversation-list {
   list-style: none;
-  text-align: left;
-  padding-left: 5%;
+  padding: 0;
+  list-style-type: none;
 }
 
 .conversation-button {
