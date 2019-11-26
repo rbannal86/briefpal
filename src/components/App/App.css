@@ -1,5 +1,6 @@
 .header-section {
   background-color: #173340;
+  font-size: 1.3rem;
 }
 
 .header-content {
@@ -23,7 +24,7 @@
 .nav-button {
   width: 30vw;
   border: none;
-  font-size: 1.3rem;
+
   background-color: #173340;
   padding: 0;
 }

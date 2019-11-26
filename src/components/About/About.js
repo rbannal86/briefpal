@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import './About.css'
 
+//Basic 'About Page' describes the idea behind the app and guides a new user to register an account
+
 class About extends Component {
   render() {
     return(

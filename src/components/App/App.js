@@ -22,6 +22,8 @@ class App extends Component {
     this.handleLogIn = this.handler.bind(this)
   }
 
+  //handler function is passed to UserLogin so that the MainPage re-renders for a user once logged in, displaying the correct link to the UserPage
+
   handler = () => {
     this.setState({
       logged_in: true,
@@ -29,6 +31,8 @@ class App extends Component {
       user_id: this.handleUserId()
     })
   }
+
+  //this function fetches the user_id based on the user_name present in the window.localStorage
 
   handleUserId = () => {
     let user_name = window.localStorage.user_name
@@ -49,6 +53,8 @@ class App extends Component {
         })
       })}
 
+  //basic state, checks for a logged_in status and displays different buttons based on whether it's true or fallse
+  
   state = {
     user_name: window.localStorage.user_name,
     user_id: '',
