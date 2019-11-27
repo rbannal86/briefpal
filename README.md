@@ -45,7 +45,7 @@ https://github.com/rbannal86/briefpal-api
 ### screenshots: 
 
 ### Main page before login or register
-![bp1](public\img\bp1.png)
+![bp1](https://raw.githubusercontent.com/rbannal86/briefpal/public/img/bp1.png)
 
 ### About page with link to register
 ![bp2](public\img\bp2.png)
