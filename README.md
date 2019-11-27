@@ -1,68 +1,89 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### Name: 
+briefPal Client
 
-## Available Scripts
+### App url: 
+https://briefpal-client.now.sh/userpage
 
-In the project directory, you can run:
+### github repo: 
+https://github.com/rbannal86/briefpal
 
-### `npm start`
+### server github repo: 
+https://github.com/rbannal86/briefpal-api
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### API documentation:
+  ### Endpoints:
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
 
-### `npm test`
+    /api/auth:
+      /login: { user_name, password } POST
+        returns { user_id: id }
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+    /api/letters:
+      /newletter: { user_id, content } POST
+        returns { recipent: id }
+      /getletters/:letter_id: {} GET
+        returns { id: id, content: "content", sender: id, recipient: id}
 
-### `npm run build`
+    /api/register:
+      /: { user_name, password } POST
+        returns JWT
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+    /api/conversations:
+      /:conversation_id {} GET
+        returns { id: id, user_one: id, user_two: id, letter_one: id, letter_two: id, letter_three: id, letter_count: num }
+      /:conversation_id/reply { user_id, content } POST
+        returns { id: id, user_one: id, user_two: id, letter_one: id, letter_two: id, letter_three: id, letter_count: num }
+      /:conversation_id/:letter_id {} GET
+        returns { id: id, content: "content", sender: id, recipient: id }
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+    /api/users:
+      /:user_name {} GET
+        returns { id: id }
+      /:user_name/conversations {} GET
+        returns { conversations: [id...] }
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### screenshots: 
 
-### `npm run eject`
+### Main page before login or register
+![bp1](public\img\bp1.png)
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### About page with link to register
+![bp2](public\img\bp2.png)
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Register Page
+![bp3](public\img\bp3.png)
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### Main page after first time registering with button to write first letter
+![bp4](public\img\bp4.png)
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### First letter page
+![bp5](public\img\bp5.png)
 
-## Learn More
+### First letter sent page with a link to user page
+![bp6](public\img\bp6.png)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### User page with a list of conversations
+![bp7](public\img\bp7.png)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Conversation details page with a list of letters
+![bp8](public\img\bp8.png)
 
-### Code Splitting
+### Conversation details page with a letter open
+![bp9](public\img\bp9.png)
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+### Details page on a letter sent by the user
+![bp10](public\img\bp10.png)
 
-### Analyzing the Bundle Size
+### Details page on a letter sent to the user
+![bp11](public\img\bp11.png)
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+### Reply screen with the previous letter and a form to write a new letter
+![bp12](public\img\bp12.png)
 
-### Making a Progressive Web App
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+### Summary
+The briefPal app is an anonymous pen pal app that limits the number of letters in one conversation to three. A user may initiate a conversation with a random user by writing a letter. That letter may be responded to by the selected random user, after which the original sender may respond to it one more time. A collection of the conversations that a user has had comprises their user page. A user may have as many conversations as desired.
 
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+### Tech Stack
+#### backend: JS, PostgreSQL, Express, Knex
+#### frontend: JS, React, CSS, HTML
