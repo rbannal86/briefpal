@@ -48,37 +48,37 @@ https://github.com/rbannal86/briefpal-api
 ![bp1](./public/img/bp1.png)
 
 ### About page with link to register
-![bp2](public\img\bp2.png)
+![bp2](./public/img/bp2.png)
 
 ### Register Page
-![bp3](public\img\bp3.png)
+![bp3](./public/img/bp3.png)
 
 ### Main page after first time registering with button to write first letter
-![bp4](public\img\bp4.png)
+![bp4](./public/img/bp4.png)
 
 ### First letter page
-![bp5](public\img\bp5.png)
+![bp5](./public/img/bp5.png)
 
 ### First letter sent page with a link to user page
-![bp6](public\img\bp6.png)
+![bp6](./public/img/bp6.png)
 
 ### User page with a list of conversations
-![bp7](public\img\bp7.png)
+![bp7](./public/img/bp7.png)
 
 ### Conversation details page with a list of letters
-![bp8](public\img\bp8.png)
+![bp8](./public/img/bp8.png)
 
 ### Conversation details page with a letter open
-![bp9](public\img\bp9.png)
+![bp9](./public/img/bp9.png)
 
 ### Details page on a letter sent by the user
-![bp10](public\img\bp10.png)
+![bp10](./public/img/bp10.png)
 
 ### Details page on a letter sent to the user
-![bp11](public\img\bp11.png)
+![bp11](./public/img/bp11.png)
 
 ### Reply screen with the previous letter and a form to write a new letter
-![bp12](public\img\bp12.png)
+![bp12](./public/img/bp12.png)
 
 
 ### Summary
