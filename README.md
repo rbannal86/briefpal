@@ -16,11 +16,11 @@ https://github.com/rbannal86/briefpal-api
 
     /api/auth:
       /login: { user_name, password } POST
-        returns { user_id: id }
+        returns { authToken: "authtokenstring" }
 
     /api/letters:
       /newletter: { user_id, content } POST
-        returns { recipent: id }
+        returns id (id of recipient)
       /getletters/:letter_id: {} GET
         returns { id: id, content: "content", sender: id, recipient: id}
 
