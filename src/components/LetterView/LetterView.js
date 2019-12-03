@@ -50,7 +50,7 @@ class LetterView extends Component {
       }
       <p className='letter-content'>{this.state.content}</p>
       <div className='letter-nav-buttons'>
-        {((this.state.sender === this.state.user_id) || (this.props.history.location.state.letter_count > this.props.location.state.letter_index + 1)) ?  <></> : <Link to={{pathname: '/reply', state:{previous_content: this.state.content, conversation_id: this.state.conversation_id}}}><button>Reply</button></Link>}
+        {((this.state.sender === this.state.user_id) || ((this.props.history.location.state.letter_count > this.props.location.state.letter_index + 1) || this.props.history.location.state.letter_count === 3)) ?  <></> : <Link to={{pathname: '/reply', state:{previous_content: this.state.content, conversation_id: this.state.conversation_id}}}><button>Reply</button></Link>}
         <Link to={{pathname: '/user/letters', state: {conversation_id: this.state.conversation_id}}}><button className='back-button'>Back</button></Link>
       </div>
     </div>
