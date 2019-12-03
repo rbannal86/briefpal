@@ -62,7 +62,6 @@ class App extends Component {
   }
 
   logout = (e) => {
-    // e.preventDefault()
     window.localStorage.removeItem('client_auth_token')
     window.localStorage.removeItem('user_name')
     this.setState({
