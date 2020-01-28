@@ -2,7 +2,7 @@
 briefPal Client
 
 ### App url: 
-https://briefpal-client.now.sh/userpage
+https://briefpal.now.sh/
 
 ### github repo: 
 https://github.com/rbannal86/briefpal
